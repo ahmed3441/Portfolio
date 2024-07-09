@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,55 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+
+.bg-black {
+  background-color: black !important;
+}
+
+.underline-animation {
+  position: absolute;
+  bottom: -4px; 
+  left: 0;
+  width: 30%;
+  height: 2px;
+  background-color: #81828d;
+  transition: width 0.3s ease, background-color 0.3s ease; 
+}
+
+.underline-active {
+  width: 100%; 
+  background-color: #f9004d; 
+}
+
+
+/*QuickReset*/*{margin:0;box-sizing:border-box;}
+
+.thumb {
+  width: 140px;
+  background: #eee;
+}
+
+.anim {
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+.title {
+  color: red;
+  transition: 0.5s;
+  transform: translateY(-100%);
+}
+
+.author {
+  color: blue;
+}
+
+/* ANIMATE */
+
+.thumb:hover .anim,
+.thumb:hover .title {
+  transform: translateY(0);
 }
