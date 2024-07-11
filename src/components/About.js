@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 // import Mee from "../assets/images/Mee.jpg";
- import Hellos from "../assets/images/logo-symbol-dark.png";
+ //import Hellos from "../assets/images/logo-symbol-dark.png";
 
  import   { useEffect } from 'react';
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import { getDownloadURL, ref } from 'firebase/storage';
 
 const Hello = () => {
 
@@ -12,7 +13,8 @@ const Hello = () => {
   const [awards, setAwards] = useState([]);
   const [experiences, setExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
-  // const [images, setImages] = useState([]);
+
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -73,21 +75,19 @@ const Hello = () => {
     fetchContacts();
   }, []);
 
+useEffect(()=>{
+  const fetchImageUrl = async () => {
+    const imageRef = ref(storage, 'images/1.jpeg');
+    try {
+      const url = await getDownloadURL(imageRef);
+      setImages(url);
+    } catch (error) {
+      console.error('Error fetching image URL:', error);
+    }
+  };
 
-  // useEffect(() => {
-  //   const fetchContacts = async () => {
-  //     const querySnapshot = await getDocs(collection(db, 'images'));
-  //     const contactsArray = querySnapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       ...doc.data()
-  //     }));
-  //     setImages(contactsArray);
-     
-  //   };
-
-  //   fetchContacts();
-  // }, []);
-
+  fetchImageUrl();
+}, []);
 
   const [activeTab, setActiveTab] = useState('main-skills');
 
@@ -124,8 +124,7 @@ const Hello = () => {
 
           </div>;
          
-         
-      case 'awards':
+         case 'awards':
         return <div><div>
         <span className='text-base font-medium text-fontColor mx-5'>Awardds.com- <span className='font-normal ext-base'>Winner</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2019-2020</p> </div>
@@ -175,9 +174,7 @@ const Hello = () => {
     </div>
   );
 })}        
-        
         </div>;
-
 
       case 'education-certification':
         return <div>
@@ -215,9 +212,14 @@ const Hello = () => {
     <div id='about' className="bg-customDark text-white p-12 md:p-24 lg:p-48 flex justify-center items-start">
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8 w-full max-w-screen-xl">
         {/* Picture */}
-        <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
+        {/* <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
           <img src={Hellos} alt="Profile-Picture" className="w-full h-full object-cover"/>
-        </div>
+        </div> */}
+         {images && (
+          <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center mt-10">
+            <img src={images} alt="Fetched-Image" className="w-full h-full object-cover" />
+          </div>
+        )}
         {/* Content */}
         <div className="col-span-1 md:col-span-5 lg:col-span-7 flex flex-col justify-start text-center md:text-left">
           <div className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold relative lg:top-[-80px]">

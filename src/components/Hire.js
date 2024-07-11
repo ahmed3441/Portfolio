@@ -79,14 +79,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
-import Hellos from "../assets/images/logo-symbol-dark.png";
+// import Hellos from "../assets/images/logo-symbol-dark.png";
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
+import { getDownloadURL, ref } from 'firebase/storage';
 
 const Hire = () => {
   const form = useRef();
 
   const [hires, setHires] = useState([]);
+
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -119,6 +122,22 @@ const Hire = () => {
       );
   };
 
+
+  useEffect(()=>{
+    const fetchImageUrl = async () => {
+      const imageRef = ref(storage, 'images/1.jpeg');
+      try {
+        const url = await getDownloadURL(imageRef);
+        setImages(url);
+      } catch (error) {
+        console.error('Error fetching image URL:', error);
+      }
+    };
+  
+    fetchImageUrl();
+  }, []);
+
+
   return (
     <div id='contact' className="bg-customDark text-white p-12 md:p-24 lg:p-48 flex justify-center items-start">
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-8 w-full max-w-screen-xl">
@@ -147,9 +166,11 @@ const Hire = () => {
             </form>
           </div>
         </div>
+        {images && (
         <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
-          <img src={Hellos} alt="Profile-Picture" className="w-full h-full object-cover" />
+          <img src={images} alt="Profile-Picture" className="w-full h-full object-cover" />
         </div>
+        )}
       </div>
       <ToastContainer />
     </div>
