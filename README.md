@@ -1,3 +1,18 @@
+# ENV File
+
+REACT_APP_FIREBASE_API_KEY= Enter Your Firebase Api Key
+REACT_APP_FIREBASE_AUTH_DOMAIN= Enter Your Firebase Auth Domain
+REACT_APP_FIREBASE_PROJECT_ID= Enter Your Firebase Project Id
+REACT_APP_FIREBASE_STORAGE_BUCKET= Enter Your Firebase Storage Bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID= Enter Your Firebase Messaging Sender
+REACT_APP_FIREBASE_APP_ID= Enter Your Firebase API Id
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
