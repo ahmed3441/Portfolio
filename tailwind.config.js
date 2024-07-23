@@ -10,6 +10,7 @@ module.exports = {
         'xxxs': '350px',
         'xxs': '425px',
         'xs': '576px',
+        'mmd': '877px'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
