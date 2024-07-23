@@ -126,15 +126,16 @@ useEffect(()=>{
           </div>;
          
          case 'awards':
-        return <div><div>
+        return <div>
+          {/* <div>
         <span className='text-base font-medium text-fontColor mx-5'>Awardds.com- <span className='font-normal ext-base'>Winner</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2019-2020</p> </div>
         <div className='mt-5'>
         <span className='text-base font-medium text-fontColor mx-5'>CSS design awards - <span className='font-normal ext-base'>Winner</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2020-2021</p> </div>
         <div className='mt-5'>
-        <span className='text-base font-medium text-fontColor mx-5'>Design nominees - <span className='font-normal ext-base'>Site of the day</span></span>
-        <p className='text-base text-fontColor font-normal mx-5'>2021-2022</p> </div>
+        <span className='text-base font-medium text-fontColor mx-5'>Design nominees - <span className='font-normal ext-base'> </span></span>
+        <p className='text-base text-fontColor font-normal mx-5'>2021-2022</p> </div> */}
         
         
         {awards.map((award) => {
@@ -153,7 +154,8 @@ useEffect(()=>{
         </div>;
 
       case 'experience':
-        return <div><div>
+        return <div>
+          {/* <div>
         <span className='text-base font-medium text-fontColor mx-5'>Front-end Developer - <span className='font-normal ext-base'>Xeven Solution</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2023-current</p> </div>
         <div className='mt-5'>
@@ -161,7 +163,7 @@ useEffect(()=>{
         <p className='text-base text-fontColor font-normal mx-5'>2021-23</p> </div>
         <div className='mt-5'>
         <span className='text-base font-medium text-fontColor mx-5'>Graphic designer - <span className='font-normal ext-base'>Digital Estimation LLC</span></span>
-        <p className='text-base text-fontColor font-normal mx-5'>2021</p> </div>
+        <p className='text-base text-fontColor font-normal mx-5'>2021</p> </div> */}
 
         {experiences.map((experience) => {
   return (
@@ -193,16 +195,16 @@ useEffect(()=>{
   );
 })}  
 
-          <div>
+          {/* <div>
         <span className='text-base font-medium text-fontColor mx-5'>BSCS Computer Sciences - <span className='font-normal ext-base'>University of South Asia</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2019-2023</p> </div>
         <div className='mt-5'>
-        <span className='text-base font-medium text-fontColor mx-5'>F.Sc Pre-Engineering - <span className='font-normal ext-base'>Govt. College of Science</span></span>
+        <span className='text-base font-medium text-fontColor mx-5'>F.Sc Pre-Engineering - <span className='font-normal ext-base'>  </span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2017-2019</p> </div>
         <div className='mt-5'>
         <span className='text-base font-medium text-fontColor mx-5'>Matric - <span className='font-normal ext-base'>Govt. Central Model School</span></span>
         <p className='text-base text-fontColor font-normal mx-5'>2015-2017</p> </div>
-        
+         */}
         </div>;
       default:
         return null;
