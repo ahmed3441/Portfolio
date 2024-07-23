@@ -156,7 +156,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl !mx-4 mt-2 sm:!mx-2 cursor-pointer" />
             <FontAwesomeIcon icon={faLinkedin} className="text-white text-2xl !mx-4 mt-2 sm:!mx-2 cursor-pointer" />
             <FontAwesomeIcon icon={faTwitter} className="text-white text-2xl mx-4 mt-2 sm:!mx-2 cursor-pointer" />
-            <button className="text-white border pt-2 pb-2 px-5 rounded-lg !ml-4 hidden xs:block">Buy Now</button>
+            {/* <button className="text-white border pt-2 pb-2 px-5 rounded-lg !ml-4 hidden xs:block">Buy Now</button> */}
             <button data-collapse-toggle="navbar-sticky" onClick={toggleDropdown} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg mmd:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
               <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
