@@ -94,7 +94,8 @@ useEffect(()=>{
   const renderContent = () => {
     switch (activeTab) {
       case 'main-skills':
-        return <div> <div>
+        return <div> 
+          {/* <div>
           <span className='text-base font-medium text-fontColor mx-5'>User experience design - <span className='font-normal ext-base'>UI/UX</span></span>
           <p className='text-base text-fontColor font-normal mx-5'>Delight the user and make it work.</p> </div>
           <div className='mt-5'>
@@ -102,7 +103,7 @@ useEffect(()=>{
           <p className='text-base text-fontColor font-normal mx-5'>Websites, web experiences,..</p> </div>
           <div className='mt-5'>
           <span className='text-base font-medium text-fontColor mx-5'>Interaction design - <span className='font-normal ext-base'>Animation</span></span>
-          <p className='text-base text-fontColor font-normal mx-5'>I like to move it.</p> </div>
+          <p className='text-base text-fontColor font-normal mx-5'>I like to move it.</p> </div> */}
 
         
           {skills.map((skill) => {
