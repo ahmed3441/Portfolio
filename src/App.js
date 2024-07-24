@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Main from './pages/Main';
+import About from './pages/About';
 import Form from './pages/Form';
 import Awards from './pages/Awards';
 import Experience from './pages/Experience';
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/about" element={<About />} />
           <Route path="/awards" element={<Awards />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />

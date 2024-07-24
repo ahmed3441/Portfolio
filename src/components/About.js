@@ -13,6 +13,7 @@ const Hello = () => {
   const [awards, setAwards] = useState([]);
   const [experiences, setExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
+  const [about, setAbout] = useState([]);
 
   const [images, setImages] = useState([]);
 
@@ -89,6 +90,20 @@ useEffect(()=>{
   fetchImageUrl();
 }, []);
 
+
+useEffect(() => {
+  const fetchContacts = async () => {
+    const querySnapshot = await getDocs(collection(db, 'about'));
+    const contactsArray = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    setAbout(contactsArray);
+  };
+  fetchContacts();
+}, []);
+
+
   const [activeTab, setActiveTab] = useState('main-skills');
 
   const renderContent = () => {
@@ -112,7 +127,7 @@ useEffect(()=>{
   const remainingContent = contentParts.slice(1).join(' ');
 
   return (
-    <div key={skill.id} className='mt-5'>
+    <div key={skill.id} className='mb-5'>
       <span className='text-base font-medium text-fontColor mx-5'>
         {skill.title} - <span className='font-normal text-base'>{firstWord}</span>
       </span>
@@ -140,7 +155,7 @@ useEffect(()=>{
         
         {awards.map((award) => {
   return (
-    <div key={award.id} className='mt-5'>
+    <div key={award.id} className='mb-5'>
       <span className='text-base font-medium text-fontColor mx-5'>
         {award.awards} - <span className='font-normal text-base'>{award.title}</span>
       </span>
@@ -167,7 +182,7 @@ useEffect(()=>{
 
         {experiences.map((experience) => {
   return (
-    <div key={experience.id} className='mt-5'>
+    <div key={experience.id} className='mb-5'>
       <span className='text-base font-medium text-fontColor mx-5'>
         {experience.designation} - <span className='font-normal text-base'>{experience.company}</span>
       </span>
@@ -219,7 +234,7 @@ useEffect(()=>{
           <img src={Hellos} alt="Profile-Picture" className="w-full h-full object-cover"/>
         </div> */}
          {images && (
-          <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center mt-10">
+          <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
             <img src={images} alt="Fetched-Image" className="w-full h-full object-cover" />
           </div>
         )}
@@ -228,12 +243,21 @@ useEffect(()=>{
           <div className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold relative lg:top-[-80px]">
             About Me
           </div>
+
           <div className="mt-4 text-lg font-poppins font-light text-fontColor relative lg:top-[-80px] text-center whitespace-break-spaces">
-            <p className=''>My passion is making ideas come to life, be it working solo, as part of a team or leading a team of fellow developers. <br/> <br/>
-            Your Throughout my 3 years of development experience, I worked everywhere from startups to big companies, building products from the ground up or implementing new features. <br/>  <br/>
-            My go-to technologies are React.js and ASP.NET and I have completed a wide range of projects using them. I'm always happy to discuss my client's needs and find the best solutions for them. <br/>  <br/>
-            I consider myself creative and hardworking, as my stats show. If you liked my profile so far, drop me a message and we'll discuss how I can be useful to your project.</p> 
-          </div>
+  {about.map((item, index) => (
+    <p key={index} className="mb-4">{item.about}</p>
+  ))}
+</div>
+
+
+{/* <div className="mt-4 text-lg font-poppins font-light text-fontColor relative lg:top-[-80px] text-center whitespace-break-spaces">
+  <p className="mb-4">My passion is making ideas come to life, be it working solo, as part of a team or leading a team of fellow developers.</p>
+  <p className="mb-4">Throughout my 3 years of development experience, I worked everywhere from startups to big companies, building products from the ground up or implementing new features.</p>
+  <p className="mb-4">My go-to technologies are React.js and ASP.NET and I have completed a wide range of projects using them. I'm always happy to discuss my client's needs and find the best solutions for them.</p>
+  <p className="mb-4">I consider myself creative and hardworking, as my stats show. If you liked my profile so far, drop me a message and we'll discuss how I can be useful to your project.</p>
+</div> */}
+
 
           <div>
           <ul className='flex flex-wrap'>

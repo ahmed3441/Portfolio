@@ -45,7 +45,8 @@
 
 import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
+import { getDownloadURL, ref } from 'firebase/storage';
 
 const LatestProjects = () => {
   const [news, setNews] = useState([]);
@@ -53,11 +54,22 @@ const LatestProjects = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       const querySnapshot = await getDocs(collection(db, 'news'));
-      const contactsArray = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setNews(contactsArray);
+    
+      const projectsArray = await Promise.all(
+        querySnapshot.docs.map(async (doc) => {
+          const data = doc.data();
+          let imageUrl = null;
+          if (data.imageUrl) {  
+            imageUrl = await getDownloadURL(ref(storage, data.imageUrl));
+          }
+          return {
+            id: doc.id,
+            ...doc.data(),
+            imageUrl,
+          };
+        })
+      );
+      setNews(projectsArray);
     };
 
     fetchContacts();
@@ -77,16 +89,20 @@ const LatestProjects = () => {
         {news.map((newz) => (
           <div
             key={newz.id}
-            className="bg-bgCards p-6 rounded-lg shadow-md group hover:bg-gradient-to-b hover:from-pink-600 hover:to-black transition duration-300 hover:scale-105 flex flex-col justify-end overflow-hidden"
+            className="bg-bgCards rounded-lg shadow-md group hover:bg-gradient-to-b hover:from-pink-600 hover:to-black transition duration-300 hover:scale-105 flex flex-col justify-end overflow-hidden"
             style={{ height: '600px' }}
           >
-            <div className="mt-auto">
-              <p className="text-sm font-poppins font-normal text-white transition-transform transform translate-y-full group-hover:translate-y-0">{newz.niche}</p>
-              <p className="text-3xl font-medium font-poppins text-white transition-transform transform translate-y-full group-hover:translate-y-0">{newz.title}</p>
-            </div>
+             {newz.imageUrl && (
+                  <img src={newz.imageUrl} alt={newz.title} className="w-full h-2/3 object-cover rounded-t-lg"></img>
+                )}
+            <div className="mt-auto px-20">
+              <p className="text-sm font-poppins font-normal text-white transition-transform transform translate-y-full group-hover:translate-y-5">{newz.niche}</p>
+              <p className="text-3xl font-medium font-poppins text-white transition-transform transform translate-y-full group-hover:translate-y-7">{newz.title}</p>
+            
             <button className="w-32 mb-10 bg-transparent border-2 border-red-500 text-red-500 px-4 py-2 mt-14 transition duration-300 opacity-0 group-hover:opacity-100 hover:bg-red-500 hover:text-white">
               Read more
             </button>
+            </div>
           </div>
         ))}
       </div>

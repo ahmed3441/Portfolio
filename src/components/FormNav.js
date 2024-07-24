@@ -40,6 +40,9 @@ const Navbar = () => {
       <Link to="/header" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Header</Link>
     </li>
     <li>
+      <Link to="/about" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">About Me</Link>
+    </li>
+    <li>
       <Link to="/form" className=" cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins" aria-current="page">Main Skills</Link>
     </li>
     <li>
@@ -66,6 +69,7 @@ const Navbar = () => {
     <li>
       <Link to="/news" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">News</Link>
     </li>
+   
    
   </ul>
 </div>

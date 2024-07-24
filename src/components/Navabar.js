@@ -96,6 +96,7 @@ import Logo from '../assets/images/logo-symbol-dark.png';
 import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -122,33 +123,75 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav id="navbar" className="bg-transparentmmd:bg-gray-800 lg:bg-transparent dark:bg-gray-900 fixed w-full z-20 top-0 start-0 lg:px-10 md:px-2 mt-0">
+      <nav id="navbar" className="bg-transparent lg:bg-transparent dark:bg-gray-900 fixed w-full z-20 top-0 start-0 lg:px-10 md:px-2 mt-0">
         <div className="flex items-center justify-between mx-auto p-4">
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src={Logo} className="h-14" alt="Logo" />
 
-            <div className={`fixed top-0 left-0 h-full bg-transparent transition-transform transform ${dropdownOpen ? 'translate-x-0' : '-translate-x-full'} w-64 z-50 mmd:relative mmd:translate-x-0 mmd:flex mmd:w-auto mmd:order-1 px-6 ${dropdownOpen ? 'mmd:bg-gray-800' : 'mmd:bg-transparent'}`} id="navbar-sticky">
-              <ul className="flex flex-col p-4 mmd:p-0 mt-4 font-medium border border-gray-100 rounded-lg mmd:space-x-8 rtl:space-x-reverse mmd:flex-row mmd:mt-0 mmd:border-0 dark:bg-gray-800 mmd:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <Link to="home" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Home</Link>
-                </li>
-                <li>
-                  <Link to="about" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">About</Link>
-                </li>
-                <li>
-                  <Link to="service" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Service</Link>
-                </li>
-                <li>
-                  <Link to="portfolio" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Portfolio</Link>
-                </li>
-                <li>
-                  <Link to="blog" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Blog</Link>
-                </li>
-                <li>
-                  <Link to="contact" className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-gray-100 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins">Contact</Link>
-                </li>
-              </ul>
-            </div>
+            <div
+        className={`fixed top-0 right-0 h-full transition-transform transform ${
+          dropdownOpen ? 'translate-x-0 mmd: bg-black ' : 'translate-x-full mmd:bg-transparent'
+        }  w-48 z-50 mmd:relative mmd:translate-x-0 mmd:flex mmd:w-auto mmd:order-1 px-10`}
+        id="navbar-sticky"
+      >
+         <button
+                onClick={() => setDropdownOpen(false)}
+                className="absolute top-4 left-4 text-white text-2xl mmd:hidden"
+                aria-label="Close menu"
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+        <ul className="flex flex-col p-4 mmd:p-0 mt-4 font-medium  rounded-lg mmd:space-x-8 rtl:space-x-reverse mmd:flex-row mmd:mt-0 mmd:border-0 dark:bg-gray-800 mmd:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <Link
+              to="home"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="about"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="service"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              Service
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="portfolio"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="blog"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="contact"
+              className="cursor-pointer block py-2 px-3 text-white rounded hover:bg-red-500 mmd:hover:bg-transparent mmd:p-0 mmd:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white mmd:dark:hover:bg-transparent dark:border-gray-700 text-base font-bold font-poppins"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
           </div>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
