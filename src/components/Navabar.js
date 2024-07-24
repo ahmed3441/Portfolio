@@ -130,7 +130,7 @@ const Navbar = () => {
 
             <div
         className={`fixed top-0 right-0 h-full transition-transform transform ${
-          dropdownOpen ? 'translate-x-0 mmd: bg-black ' : 'translate-x-full mmd:bg-transparent'
+          dropdownOpen ? 'translate-x-0 mmd: bg-black mt-20' : 'translate-x-full mmd:bg-transparent'
         }  w-48 z-50 mmd:relative mmd:translate-x-0 mmd:flex mmd:w-auto mmd:order-1 px-10`}
         id="navbar-sticky"
       >

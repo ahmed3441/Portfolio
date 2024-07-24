@@ -229,7 +229,7 @@ const LatestProjects = () => {
         There are many variations of passages of Lorem Ipsum available, but the <br /> majority have suffered alteration.
       </div>
 
-      <div className="container mt-20">
+      <div className="container mt-20 cursor-pointer">
         <Slider {...settings}>
           {projects.map((project) => (
             <div key={project.id}>

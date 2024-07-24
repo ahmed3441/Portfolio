@@ -76,19 +76,28 @@ const Hello = () => {
     fetchContacts();
   }, []);
 
-useEffect(()=>{
-  const fetchImageUrl = async () => {
-    const imageRef = ref(storage, 'images/1.jpeg');
-    try {
-      const url = await getDownloadURL(imageRef);
-      setImages(url);
-    } catch (error) {
-      console.error('Error fetching image URL:', error);
-    }
-  };
+  useEffect(() => {
+    const fetchImages = async () => {
+      const querySnapshot = await getDocs(collection(db, 'images'));
+      const imagesArray = await Promise.all(
+        querySnapshot.docs.map(async (doc) => {
+          const data = doc.data();
+          let url = null;
+          if (data.url) {
+            url = await getDownloadURL(ref(storage, data.url));
+          }
+          return {
+            id: doc.id,
+            ...data,
+            url,
+          };
+        })
+      );
+      setImages(imagesArray);
+    };
 
-  fetchImageUrl();
-}, []);
+    fetchImages();
+  }, []);
 
 
 useEffect(() => {
@@ -233,11 +242,24 @@ useEffect(() => {
         {/* <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
           <img src={Hellos} alt="Profile-Picture" className="w-full h-full object-cover"/>
         </div> */}
-         {images && (
+         {/* {images && (
           <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
-            <img src={images} alt="Fetched-Image" className="w-full h-full object-cover" />
+            <img src={images.imageUrl} alt="Fetched-Image" className="w-full h-full object-cover" />
+          </div>
+        )} */}
+        {images.length > 0 && (
+          <div className="col-span-1 md:col-span-4 lg:col-span-5 flex justify-center">
+            {images.map((image) => (
+              <img
+                key={image.id}
+                src={image.url}
+                alt="Fetched-Image"
+                className="w-full h-full object-cover"
+              />
+            ))}
           </div>
         )}
+       
         {/* Content */}
         <div className="col-span-1 md:col-span-5 lg:col-span-7 flex flex-col justify-start text-center md:text-left">
           <div className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold relative lg:top-[-80px]">

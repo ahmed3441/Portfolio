@@ -76,9 +76,9 @@ const BackgroundImage = () => {
             Hi, I'm {header.name}
           </div>
           <TypingTextAnimation text={header.expertise} speed={100} />
-          <div className="text-3xl leading-tight xxxs:text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-54px font-bold text-white font-poppins px-0 sm:px-16">
+          {/* <div className="text-3xl leading-tight xxxs:text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-54px font-bold text-white font-poppins px-0 sm:px-16">
             based in Pakistan.
-          </div>
+          </div> */}
         </div>
       ))}
     </div>
