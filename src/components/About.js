@@ -310,7 +310,7 @@ useEffect(() => {
             className={`font-poppins font-medium text-lg mx-5 cursor-pointer relative ${activeTab === 'education-certification' ? 'text-customRed' : ''}`}
             onClick={() => setActiveTab('education-certification')}
           >
-            Education & Certification 
+            Education
              <span className={`underline-animation ${activeTab === 'education-certification' ? 'underline-active' : ''}`}></span>
           </li>
         </ul>
