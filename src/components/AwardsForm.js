@@ -29,7 +29,7 @@ const AwardsForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2 text-sm font-bold text-white ">Postion</label>
+          <label className="block mb-2 text-sm font-bold text-white ">Institue</label>
           <input
             type="text"
             className="w-full px-3 py-2 border-2 border-customRed rounded bg-transparent text-white "
