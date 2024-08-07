@@ -9,7 +9,12 @@ REACT_APP_FIREBASE_APP_ID= Enter Your Firebase API Id
 
 
 
+# Edit My Portfolio to Own
 
+After Attaching firebase with project, 
+1) Go to link and add  /form
+2) There you will show some forms, Fill it and submit.
+3) Your Portfolio will built.
 
 
 
