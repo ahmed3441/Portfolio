@@ -95,7 +95,7 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../assets/images/logo-symbol-dark.png';
 import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
     import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
@@ -123,6 +123,10 @@ const Navbar = () => {
 
   const openLinkedIn = () => {
     window.open("https://www.linkedin.com/in/m-ahmed-2abaa0295/", "_blank");
+  }
+
+  const openGithub = () => {
+    window.open("https://github.com/ahmed3441");
   }
 
   return (
@@ -202,6 +206,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faFacebook} className="text-white text-2xl mx-2 mt-2 sm:!mx-2 cursor-pointer" />
             <FontAwesomeIcon icon={faInstagram} className="text-white text-2xl !mx-4 mt-2 sm:!mx-2 cursor-pointer" />
             <FontAwesomeIcon icon={faLinkedin} className="text-white text-2xl !mx-4 mt-2 sm:!mx-2 cursor-pointer" onClick={openLinkedIn} />
+            <FontAwesomeIcon icon={faGithub} className="text-white text-2xl !mx-4 mt-2 sm:!mx-2 cursor-pointer" onClick={openGithub} />
             <FontAwesomeIcon icon={faTwitter} className="text-white text-2xl mx-4 mt-2 sm:!mx-2 cursor-pointer" />
             {/* <button className="text-white border pt-2 pb-2 px-5 rounded-lg !ml-4 hidden xs:block">Buy Now</button> */}
             <button data-collapse-toggle="navbar-sticky" onClick={toggleDropdown} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg mmd:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">

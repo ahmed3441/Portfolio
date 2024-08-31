@@ -1,6 +1,28 @@
 import React, { useState } from 'react';
 // import Mee from "../assets/images/Mee.jpg";
- //import Hellos from "../assets/images/logo-symbol-dark.png";
+  import Logo1 from "../assets/images/logo-symbol-dark.png";
+ import { FaReact } from "react-icons/fa";
+ import { SiRedux } from "react-icons/si";
+ import { DiJqueryLogo } from "react-icons/di";
+ import { SiJavascript } from "react-icons/si";
+ import { SiMui } from "react-icons/si";
+ import { SiTailwindcss } from "react-icons/si";
+ import { FaBootstrap } from "react-icons/fa";
+ import { FaHtml5 } from "react-icons/fa";
+ import { FaCss3Alt } from "react-icons/fa";
+ import { RiFirebaseFill } from "react-icons/ri";
+ import { TbBrandMysql } from "react-icons/tb";
+
+
+
+
+
+
+
+
+
+
+
 
  import   { useEffect } from 'react';
 import { db, storage } from '../firebase';
@@ -8,6 +30,31 @@ import { collection, getDocs } from 'firebase/firestore';
 import { getDownloadURL, ref } from 'firebase/storage';
 
 const Hello = () => {
+
+  const icons = [
+    FaReact,
+    SiRedux,
+    DiJqueryLogo,
+    SiJavascript,
+    SiMui,
+    SiTailwindcss,
+    FaBootstrap,
+    FaHtml5,
+    FaCss3Alt,
+    RiFirebaseFill,
+    TbBrandMysql,
+
+    
+
+
+
+
+
+    
+  ];
+
+
+
 
   const [skills, setSkills] = useState([]);
   const [awards, setAwards] = useState([]);
@@ -30,7 +77,6 @@ const Hello = () => {
 
     fetchContacts();
   }, []);
-
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -130,7 +176,7 @@ useEffect(() => {
           <p className='text-base text-fontColor font-normal mx-5'>I like to move it.</p> </div> */}
 
         
-          {skills.map((skill) => {
+          {/* {skills.map((skill) => {
   const contentParts = skill.content.split(' ');
   const firstWord = contentParts[0];
   const remainingContent = contentParts.slice(1).join(' ');
@@ -145,7 +191,26 @@ useEffect(() => {
       </div>
     </div>
   );
-})}
+})} */}
+
+<div className="grid grid-cols-12 gap-5 my-5">
+  {/* 8 Columns for Icons */}
+  <div className="col-span-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center">
+    {icons.map((IconComponent, index) => (
+      <div
+        key={index}
+        className="w-[60px] h-[60px] bg-white border border-gray-200 shadow-lg rounded-lg flex items-center justify-center"
+      >
+        <IconComponent className="text-4xl text-[#F9004D]" />
+      </div>
+    ))}
+  </div>
+
+  <div className="col-span-3 flex items-center justify-center">
+  </div>
+</div>
+
+
 
           </div>;
          
@@ -252,7 +317,7 @@ useEffect(() => {
             {images.map((image) => (
               <img
                 key={image.id}
-                src={image.url}
+                 src={image.url}
                 alt="Fetched-Image"
                 className="w-full h-full object-cover"
               />
@@ -282,7 +347,7 @@ useEffect(() => {
 
 
           <div>
-          <ul className='flex flex-wrap'>
+          <ul className='flex flex-wrap '>
           <li
             className={`font-poppins font-medium text-lg mx-5 cursor-pointer relative ${activeTab === 'main-skills' ? 'text-customRed' : ''}`}
             onClick={() => setActiveTab('main-skills')}
