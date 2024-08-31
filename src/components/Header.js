@@ -36,6 +36,14 @@ const HeaderForm = () => {
             {...register('expertise', { required: true })}
           />
         </div>
+        <div className="mb-4">
+          <label className="block mb-2 text-sm font-bold text-white">Additional Text</label>
+          <input
+            type="text"
+            className="w-full px-3 py-2 border-2 border-customRed rounded bg-transparent text-white"
+            {...register('additionalText', { required: true })}
+          />
+        </div>
         <div className='flex justify-center'>
         <button
           type="submit"

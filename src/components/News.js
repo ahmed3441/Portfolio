@@ -81,8 +81,8 @@ const LatestProjects = () => {
         Latest News
       </div>
       <div className="text-lg font-light text-fontColor text-center mt-5">
-        There are many variations of passages of Lorem Ipsum available, <br />
-        but the majority have suffered alteration.
+      Software engineers apply engineering principles and knowledge of programming languages <br/> to build software solutions for end users.
+
       </div>
 
       <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">

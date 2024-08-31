@@ -226,8 +226,8 @@ const LatestProjects = () => {
         My Latest Project
       </div>
       <div className="text-lg font-light text-fontColor text-center mt-5">
-        There are many variations of passages of Lorem Ipsum available, but the <br /> majority have suffered alteration.
-      </div>
+      I specialize in developing innovative, user-focused projects, from dynamic web applications to responsive UI designs, <br/> leveraging modern technologies like React.js, ASP.NET, and Firebase.
+            </div>
 
       <div className="container mt-20 cursor-pointer">
         <Slider {...settings}>
