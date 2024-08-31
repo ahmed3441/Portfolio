@@ -126,7 +126,7 @@ const Navbar = () => {
   }
 
   const openGithub = () => {
-    window.open("https://github.com/ahmed3441");
+    window.open("https://github.com/ahmed3441", "_blank");
   }
 
   return (
