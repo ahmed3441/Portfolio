@@ -30,7 +30,7 @@ import React, { useEffect, useState } from 'react';
 
 const TypingTextAnimation = ({ texts, speed = 100, backSpeed = 50, loop = true }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
 
@@ -46,7 +46,7 @@ const TypingTextAnimation = ({ texts, speed = 100, backSpeed = 50, loop = true }
 
       setDisplayedText(updatedText);
 
-      const typingSpeed = isDeleting ? backSpeed : speed;
+      // const typingSpeed = isDeleting ? backSpeed : speed;
 
       if (!isDeleting && updatedText === currentText) {
         setTimeout(() => setIsDeleting(true), 1000); // Wait before starting to delete
