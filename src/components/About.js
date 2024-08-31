@@ -192,10 +192,9 @@ useEffect(() => {
     </div>
   );
 })} */}
+<div className="flex flex-wrap gap-5 my-5">
 
-<div className="grid grid-cols-12 gap-5 my-5">
-  {/* 8 Columns for Icons */}
-  <div className="col-span-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center">
+  <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-5 w-[500px]">
     {icons.map((IconComponent, index) => (
       <div
         key={index}
@@ -205,10 +204,9 @@ useEffect(() => {
       </div>
     ))}
   </div>
-
-  <div className="col-span-3 flex items-center justify-center">
-  </div>
 </div>
+
+
 
 
 
