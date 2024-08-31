@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import Mee from "../assets/images/Mee.jpg";
-  import Logo1 from "../assets/images/logo-symbol-dark.png";
+  // import Logo1 from "../assets/images/logo-symbol-dark.png";
  import { FaReact } from "react-icons/fa";
  import { SiRedux } from "react-icons/si";
  import { DiJqueryLogo } from "react-icons/di";
@@ -56,7 +56,7 @@ const Hello = () => {
 
 
 
-  const [skills, setSkills] = useState([]);
+  // const [skills, setSkills] = useState([]);
   const [awards, setAwards] = useState([]);
   const [experiences, setExperiences] = useState([]);
   const [educations, setEducations] = useState([]);
@@ -64,19 +64,19 @@ const Hello = () => {
 
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    const fetchContacts = async () => {
-      const querySnapshot = await getDocs(collection(db, 'skills'));
-      const contactsArray = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setSkills(contactsArray);
+  // useEffect(() => {
+  //   const fetchContacts = async () => {
+  //     const querySnapshot = await getDocs(collection(db, 'skills'));
+  //     const contactsArray = querySnapshot.docs.map(doc => ({
+  //       id: doc.id,
+  //       ...doc.data()
+  //     }));
+  //     setSkills(contactsArray);
      
-    };
+  //   };
 
-    fetchContacts();
-  }, []);
+  //   fetchContacts();
+  // }, []);
 
   useEffect(() => {
     const fetchContacts = async () => {
