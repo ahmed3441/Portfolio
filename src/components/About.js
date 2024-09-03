@@ -32,27 +32,19 @@ import { getDownloadURL, ref } from 'firebase/storage';
 const Hello = () => {
 
   const icons = [
-    FaReact,
-    SiRedux,
-    DiJqueryLogo,
-    SiJavascript,
-    SiMui,
-    SiTailwindcss,
-    FaBootstrap,
-    FaHtml5,
-    FaCss3Alt,
-    RiFirebaseFill,
-    TbBrandMysql,
-
-    
-
-
-
-
-
-    
+    { component: FaReact, label: 'React' },
+    { component: SiRedux, label: 'Redux' },
+    { component: DiJqueryLogo, label: 'JQuery' },
+    { component: SiJavascript, label: 'JavaScript' },
+    { component: SiMui, label: 'Material-UI' },
+    { component: SiTailwindcss, label: 'Tailwind CSS' },
+    { component: FaBootstrap, label: 'Bootstrap' },
+    { component: FaHtml5, label: 'HTML5' },
+    { component: FaCss3Alt, label: 'CSS3' },
+    { component: RiFirebaseFill, label: 'Firebase' },
+    { component: TbBrandMysql, label: 'MySQL' },
   ];
-
+  
 
 
 
@@ -193,25 +185,20 @@ useEffect(() => {
   );
 })} */}
 <div className="flex flex-wrap gap-5 my-5">
-
   <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-5 w-[500px]">
-    {icons.map((IconComponent, index) => (
+    {icons.map(({ component: IconComponent, label }, index) => (
       <div
         key={index}
-        className="w-[60px] h-[60px] bg-white border border-gray-200 shadow-lg rounded-lg flex items-center justify-center"
+        className="w-[90px] h-[80px] bg-white border border-gray-200 shadow-lg rounded-lg flex flex-col items-center justify-center text-center"
       >
         <IconComponent className="text-4xl text-[#F9004D]" />
+        <span className="mt-2 text-sm font-bold text-gray-700">{label}</span>
       </div>
     ))}
   </div>
 </div>
-
-
-
-
-
           </div>;
-         
+          
          case 'awards':
         return <div>
           {/* <div>
