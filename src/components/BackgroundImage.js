@@ -187,6 +187,18 @@ const BackgroundImage = () => {
             backSpeed={50}
             loop={true}
           />
+
+<div className="pt-10 px-0 sm:px-16 flex justify-start">
+  <a
+    href="https://drive.google.com/file/d/1g278jeFl5ke04cUV6qIz22at6LRE-J3L/view?usp=drive_link"
+    target="_blank"
+    rel="noopener noreferrer" 
+    className="bg-transparent text-white px-6 py-3 rounded-md font-bold hover:bg-customRed border border-customRed  font-montserrat"
+  >
+     Resume's here
+  </a>
+</div>
+
           {/* <div className="text-3xl leading-tight xxxs:text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-54px font-bold text-white font-poppins px-0 sm:px-16">
             based in Pakistan.
           </div> */}
